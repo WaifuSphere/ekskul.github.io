@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekskul SRMA 24 Kediri</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.7;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      background: white;
+      color: #4f46e5;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 50px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .form-section {
+      margin-top: 50px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: none;
+    }
+
+    button.submit {
+      width: 100%;
+      padding: 12px;
+      background: white;
+      color: #4f46e5;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>SRMA 24 Kediri</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#ekskul">Ekskul</a>
+      <a href="#daftar">Daftar</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Gabung Ekskul Favoritmu 🚀</h2>
+    <p>Tingkatkan skill & prestasi bersama kami</p>
+    <br>
+    <button onclick="scrollToForm()">Daftar Sekarang</button>
+  </section>
+
+  <!-- Ekskul -->
+  <section class="container" id="ekskul">
+    <h2>Ekstrakurikuler</h2>
+    <br>
+    <div class="cards">
+      <div class="card">Futsal</div>
+      <div class="card">Pramuka</div>
+      <div class="card">PMR</div>
+      <div class="card">Seni Musik</div>
+      <div class="card">English Club</div>
+      <div class="card">Seni Tari</div>
+    </div>
+
+    <!-- Form -->
+    <div class="form-section" id="daftar">
+      <h2>Form Pendaftaran</h2>
+      <input type="text" placeholder="Nama Lengkap" id="nama">
+      <input type="text" placeholder="Kelas" id="kelas">
+
+      <select id="ekskulSelect">
+        <option>Pilih Ekskul</option>
+        <option>Futsal</option>
+        <option>Pramuka</option>
+        <option>PMR</option>
+        <option>Seni Musik</option>
+        <option>English Club</option>
+      </select>
+
+      <button class="submit" onclick="kirimData()">Daftar</button>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SRMA 24 Kediri
+  </footer>
+
+  <script>
+    function scrollToForm() {
+      document.getElementById("daftar").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function kirimData() {
+      const nama = document.getElementById("nama").value;
+      const kelas = document.getElementById("kelas").value;
+      const ekskul = document.getElementById("ekskulSelect").value;
+
+      if(nama === "" || kelas === "") {
+        alert("Harap isi semua data!");
+        return;
+      }
+
+      alert("Pendaftaran berhasil!\nNama: " + nama + "\nEkskul: " + ekskul);
+    }
+  </script>
+
+</body>
+</html>
